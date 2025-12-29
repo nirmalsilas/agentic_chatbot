@@ -22,14 +22,17 @@ def load_langgraph_agenticai_app():
             if not model:
                 st.error("Error: not able to initialize the llm")
                 return
+            print("llm initialized... ",user_message)
             usecase = user_input.get("selected_usecase")
             if not usecase:
                 st.error("Error: No use case selected")
                 return
+            
             graph_builder = GraphBuilder(model)
 
             try:
                 graph = graph_builder.setup_graph(usecase)
+                print("graph is built... ")
                 DisplayResultStreamlit(usecase,graph,user_message).display_result_on_ui()
             except Exception as e:
                 st.error(f"Error: graph setup failed {e}")
