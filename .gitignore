@@ -96,3 +96,4 @@ celerybeat-schedule
 
 # SQL DBs
 *.sqlite3
+src/langgraphagentic_ai/LLMS/__pycache__/
